@@ -28,10 +28,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # projetc apps
-    'core.apps.CoreConfig',
-    'product.apps.ProductConfig',
-    'cart.apps.CartConfig'
+    # project apps
+    'core',
+    'product',
+    'cart'
 ]
 
 MIDDLEWARE = [
