@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.db.models import Q
 from product.models import Product, Category
 
-# Create your views here.
 
 def frontpage(request):
     products = Product.objects.all()[0:8]
