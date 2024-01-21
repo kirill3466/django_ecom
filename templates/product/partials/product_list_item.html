@@ -1,7 +1,7 @@
 <div class="w-full md:w1/3 xl:w-1/4 p-6">
 
     <a href="{% url 'product' product.slug %}">
-        <img src="https://images.unsplash.com/photo-1540932239986-30128078f3c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" class="rounded-xl hover:shadow-lg">
+    <img src="{{product.image.url}}" class="rounded-xl hover:shadow-lg">
     </a>
 
     <div class="pt-3 flex items-center justify-between">
