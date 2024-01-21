@@ -9,5 +9,4 @@ urlpatterns = [
     path('', frontpage, name='frontpage'),
     path('shop/', shop, name='shop'),
     path('shop/<slug:slug>/', product, name='product'),
-    path('add_to_cart/<int:product_id>/', add_to_cart, name='add_to_cart')
 ]
