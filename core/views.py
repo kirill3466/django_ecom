@@ -1,11 +1,13 @@
-from django.shortcuts import render
 from django.db.models import Q
-from product.models import Product, Category
+from django.shortcuts import render
+
+from product.models import Category, Product
 
 
 def frontpage(request):
     products = Product.objects.all()[0:8]
     return render(request, 'core/frontpage.html', {'products': products})
+
 
 def shop(request):
     categories = Category.objects.all()
@@ -19,8 +21,10 @@ def shop(request):
     query = request.GET.get('query', '')
 
     if query:
-        products = products.filter(Q(name__icontains=query) | Q(description__icontains=query))
-    
+        products = products.filter(
+            Q(name__icontains=query) | Q(description__icontains=query)
+        )
+
     context = {
         'categories': categories,
         'products': products,

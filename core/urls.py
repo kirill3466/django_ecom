@@ -1,10 +1,9 @@
-from django.contrib import admin
 from django.urls import path
 
-from .views import frontpage, shop
-from product.views import product
 from cart.views import add_to_cart
+from product.views import product
 
+from .views import frontpage, shop
 
 urlpatterns = [
     path('', frontpage, name='frontpage'),
