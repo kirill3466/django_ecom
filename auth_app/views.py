@@ -1,8 +1,24 @@
-from django.shortcuts import render
+from django.contrib.auth import login, logout
+from django.shortcuts import render, redirect
+
+from .forms import SignUpForm
 
 
 def signup(request):
-    return render(request, 'auth/signup.html')
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
 
-def login(request):
-    return render(request, 'auth/login.html')
+            login(request, user)
+
+            return redirect('/')
+    else:
+        form = SignUpForm()
+
+    return render(request, 'core/signup.html', {'form': form})
+
+
+def logoutUser(request):
+    logout(request)
+    return redirect('/')
