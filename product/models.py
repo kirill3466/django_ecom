@@ -52,6 +52,8 @@ class Product(models.Model):
                 return 'https://via.placeholder.com/240x240.jpg'
 
     def make_thumbnail(self, image, size=(300, 300)):
+        if not image or not image.name or not image.file:
+            return None
         img = Image.open(image)
         img.convert('RGB')
         img.thumbnail(size)
