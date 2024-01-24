@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,6 +28,8 @@ INSTALLED_APPS = [
     'auth_app',
     # account
     'account',
+    # payment
+    'stripe',
 ]
 
 MIDDLEWARE = [
@@ -104,3 +107,6 @@ CART_SESSION_ID = 'cart'
 
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login/'
+
+STRIPE_API_KEY_PUBLISHABLE = os.getenv('STRIPE_API_KEY_PUBLISHABLE')
+STRIPE_API_KEY_HIDDEN = os.getenv('STRIPE_API_KEY_HIDDEN')
