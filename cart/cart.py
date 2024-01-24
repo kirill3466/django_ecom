@@ -18,8 +18,9 @@ class Cart(object):
             self.cart[str(p)]['product'] = Product.objects.get(pk=p)
 
         for item in self.cart.values():
-            item['total_price'] = int(item['product'].price * item['quantity']) / 100
-
+            item['total_price'] = int(
+                item['product'].price * item['quantity']
+            ) / 100
             yield item
 
     def __len__(self):

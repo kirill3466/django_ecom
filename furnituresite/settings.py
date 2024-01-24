@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'core',
     'product',
     'cart',
+    'orders',
     # auth
     'auth_app',
     # account
