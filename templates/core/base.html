@@ -31,7 +31,14 @@
                         </a>
                     {% endif %}
 
-                    {% include 'cart/menu_cart.html' %}
+                    <div
+                        hx-get="{% url 'hx_menu_cart' %}"
+                        hx-trigger="update-menu-cart from:body"
+                        hx-swap="innerHTML"
+                    >
+                        {% include 'cart/partials/menu_cart.html' %}
+                    </div>
+                    
                     {% if request.user.is_authenticated %}
                         <a href="{% url 'logout' %}">Log out</a>
                     {% endif %}
