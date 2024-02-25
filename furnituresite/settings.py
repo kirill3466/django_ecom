@@ -1,15 +1,17 @@
 from pathlib import Path
 import os
-from dotenv import load_dotenv
+import environ
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-!me4)8z#y9=0-rka5kk5y+e!2(77mr^v_)m9pu33oy80lrc%_k'
+env = environ.Env(DEBUG=(bool, False))
+env.read_env(os.path.join(BASE_DIR, ".env"))
 
+SECRET_KEY = env.str('SECRET_KEY')
 
-DEBUG = True
+DEBUG = env.bool('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
 
 INSTALLED_APPS = [
     # django apps
@@ -64,9 +66,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'furnituresite.wsgi.application'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST': os.getenv('POSTGRES_HOST', 'localhost'),
+        'PORT': os.getenv('POSTGRES_PORT', 5432),
+        'USER': os.getenv('POSTGRES_USER', 'randomuser'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'NAME': os.getenv('POSTGRES_DB', "db01")
     }
 }
 
