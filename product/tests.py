@@ -91,3 +91,4 @@ class ReviewModelTest(TestCase):
             created_by=self.user,
         )
         self.assertEqual(new_review.rating, 3)
+
