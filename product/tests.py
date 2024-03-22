@@ -92,3 +92,4 @@ class ReviewModelTest(TestCase):
         )
         self.assertEqual(new_review.rating, 3)
 
+# test github actions
