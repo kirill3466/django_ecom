@@ -19,6 +19,8 @@ jobs:
 
   testing:
     runs-on: ubuntu-latest
+    needs:
+        [build]
     steps:
     - name: test message
       run: echo "test message"
