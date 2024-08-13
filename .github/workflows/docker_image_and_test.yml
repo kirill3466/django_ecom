@@ -44,4 +44,5 @@ jobs:
     #     pip install -r ./requirements.txt
 
     - name: run unit test
-      run: python manage.py test
+      run: |
+        cd .. && python manage.py test
