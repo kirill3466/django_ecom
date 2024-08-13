@@ -45,4 +45,4 @@ jobs:
 
     - name: run unit test
       run: |
-        cd .. && python manage.py test
+        python ./manage.py test
