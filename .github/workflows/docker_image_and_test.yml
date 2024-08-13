@@ -45,4 +45,5 @@ jobs:
 
     - name: run unit test
       run: |
+        cd ${{ env.APP_NAME }}
         python manage.py test
