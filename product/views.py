@@ -1,12 +1,16 @@
 from django.shortcuts import get_object_or_404, redirect, render
+from django.views import View
 
 from .models import Product, Review
 
 
-def product(request, slug):
-    product = get_object_or_404(Product, slug=slug)
+class ProductView(View):
+    def get(self, request, slug):
+        product = get_object_or_404(Product, slug=slug)
+        return render(request, 'product/product.html', {'product': product})
 
-    if request.method == 'POST':
+    def post(self, request, slug):
+        product = get_object_or_404(Product, slug=slug)
         rating = request.POST.get('rating', 3)
         content = request.POST.get('content', '')
 
@@ -30,4 +34,4 @@ def product(request, slug):
 
             return redirect('product', slug=slug)
 
-    return render(request, 'product/product.html', {'product': product})
+        return render(request, 'product/product.html', {'product': product})

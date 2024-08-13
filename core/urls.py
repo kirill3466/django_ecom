@@ -1,11 +1,9 @@
 from django.urls import path
 
-from product.views import product
 
-from .views import frontpage, shop
+from .views import FrontPageView, ShopView
 
 urlpatterns = [
-    path('', frontpage, name='frontpage'),
-    path('shop/', shop, name='shop'),
-    path('shop/<slug:slug>/', product, name='product'),
+    path('', FrontPageView.as_view(), name='frontpage'),
+    path('shop/', ShopView.as_view(), name='shop'),
 ]
