@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.views.generic import TemplateView
 
 from product.models import Product
 
@@ -56,13 +57,13 @@ def checkout(request):
     return render(request, 'cart/checkout.html', {'pub_key': pub_key})
 
 
-def hx_menu_cart(request):
-    return render(request, 'cart/partials/menu_cart.html')
+class CartMenuView(TemplateView):
+    template_name = 'cart/partials/menu_cart.html'
 
 
-def hx_cart_total(request):
-    return render(request, 'cart/partials/cart_total.html')
+class CartTotalView(TemplateView):
+    template_name = 'cart/partials/cart_total.html'
 
 
-def success(request):
-    return render(request, 'cart/success.html')
+class CartSuccessView(TemplateView):
+    template_name = 'cart/success.html'
