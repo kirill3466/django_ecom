@@ -12,3 +12,6 @@ run:
 
 tests:
 	python manage.py test
+
+upgrade:
+	python -m pip install --upgrade pip
