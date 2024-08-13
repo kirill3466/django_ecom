@@ -31,3 +31,5 @@ jobs:
       run: echo "application name - ${{ env.APP_NAME }}"
     - name: print package name
       run: echo "package name - ${{ env.DEPLOY_PACKAGE_NAME }}"
+    - name: run unit test
+      run: python manage.py test

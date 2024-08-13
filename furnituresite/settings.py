@@ -15,27 +15,27 @@ DEBUG = env.bool('DEBUG')
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
 
 INSTALLED_APPS = [
-    # django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # project apps
+
     'core',
     'product',
     'cart',
     'orders',
-    # auth
+
     'auth_app',
-    # account
     'account',
-    # payment
+
     'stripe',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -117,3 +117,7 @@ LOGIN_URL = '/login/'
 
 STRIPE_API_KEY_PUBLISHABLE = os.getenv('STRIPE_API_KEY_PUBLISHABLE')
 STRIPE_API_KEY_HIDDEN = os.getenv('STRIPE_API_KEY_HIDDEN')
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]

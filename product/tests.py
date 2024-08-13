@@ -23,7 +23,7 @@ class CategoryModelTest(TestCase):
 class ProductModelTest(TestCase):
     def setUp(self):
         self.category = Category.objects.create(
-            name='Electronics', slug='electronics'
+            name='Electronics', slug='electronics',
         )
         self.product = Product.objects.create(
             category=self.category,
@@ -81,7 +81,6 @@ class ReviewModelTest(TestCase):
         self.assertTrue(isinstance(self.review, Review))
 
     def test_get_rating(self):
-        # Assuming this is the only review for the product
         self.assertEqual(self.product.get_rating(), 5)
 
     def test_review_default_rating(self):
@@ -91,5 +90,3 @@ class ReviewModelTest(TestCase):
             created_by=self.user,
         )
         self.assertEqual(new_review.rating, 3)
-
-# test github actions
