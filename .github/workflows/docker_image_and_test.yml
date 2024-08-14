@@ -7,6 +7,10 @@ on:
     branches: [ "master" ]
 
 jobs:
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
   build:
     runs-on: ubuntu-latest
     steps:
@@ -44,6 +48,6 @@ jobs:
 
     - name: run unit test
       run:
-        /home/runner/work/django_ecom/django_ecom/venv/bin/python manage.py tests
+        python manage.py test
     
     
