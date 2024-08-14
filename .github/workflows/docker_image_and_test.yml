@@ -35,15 +35,15 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
 
-    - name: install dependencies
-      run: |
-          pip install poetry
-          poetry install
-          poetry show
+    # - name: install dependencies
+    #   run: |
+    #       pip install poetry
+    #       poetry install
+    #       poetry show
         
 
-    # - name: run unit test
-    #   run:
-    #     make tests
+    - name: run unit test
+      run:
+        /home/runner/work/django_ecom/django_ecom/venv/bin/python manage.py tests
     
     
