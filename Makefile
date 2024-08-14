@@ -14,4 +14,4 @@ upgrade:
 	python -m pip install --upgrade pip
 
 install:
-	poetry install --no-interaction --no-ansi --no-root --with dev
+	poetry install --no-interaction
