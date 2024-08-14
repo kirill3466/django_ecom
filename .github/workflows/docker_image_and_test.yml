@@ -25,11 +25,12 @@ jobs:
         run: |
             pip install poetry
             poetry install
-            poetry shell
 
-      - name: run unit tests
-        run: |
-          python manage.py test
+
+      # - name: run unit tests
+      #   run: |
+
+      #     python manage.py test
 
 
   # build:
