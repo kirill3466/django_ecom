@@ -4,9 +4,6 @@ up:
 down:
 	docker-compose.yml down && docker network prune --force
 
-setup:
-	pip install -r requirements.txt
-
 run:
 	python manage.py runserver
 
@@ -15,3 +12,6 @@ tests:
 
 upgrade:
 	python -m pip install --upgrade pip
+
+install:
+	poetry install --no-interaction --no-ansi --no-root --with dev

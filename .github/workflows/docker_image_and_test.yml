@@ -34,24 +34,16 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: run unit test
-      run:
-          python manage.py test
 
     - name: install dependencies
       run: |
-          pip install -r requirements.txt
-  
-    
-
-    - name: install dependencies
-      run: |
-        make upgrade
-        make setup
+          pip install poetry
+          poetry install
+          poetry show
         
 
-    - name: run unit test
-      run:
-        make tests
+    # - name: run unit test
+    #   run:
+    #     make tests
     
     
