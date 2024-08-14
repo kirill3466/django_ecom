@@ -24,11 +24,12 @@ jobs:
       - name: install dependencies
         run: |
             pip install poetry
-            poetry install
-            poetry show
+            make install
+
 
       - name: run unit tests
         run: |
+          poetry shell
           python manage.py test
 
 
