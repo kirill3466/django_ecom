@@ -37,6 +37,10 @@ class Order(models.Model):
     class Meta:
         ordering = ('-created_at',)
 
+    def __str__(self) -> str:
+        return "User: " + self.user.username + " "\
+               "Order: " + str(self.id)
+
     def get_total_price(self):
         if self.paid_amount:
             return self.paid_amount / 100
@@ -56,3 +60,7 @@ class OrderItem(models.Model):
 
     def get_total_price(self):
         return self.price / 100
+
+    def __str__(self) -> str:
+        return "User:    " + self.order.user.username + " "\
+               "Product: " + self.product.name

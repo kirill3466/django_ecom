@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'product',
     'cart',
     'orders',
+    'api',
 
     'auth_app',
     'account',
